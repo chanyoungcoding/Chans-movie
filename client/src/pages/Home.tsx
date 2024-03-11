@@ -7,10 +7,13 @@ const Home = () => {
   const now = moment();
   const today = now.subtract(1, "d").format("YYYYMMDD")
 
+  const url =`http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=${import.meta.env.VITE_KMDB_API_KEY}&title=파묘&detail=Y`
+  console.log(url)
+
   const {data: dailyBoxOffice, error: dailyError, isPending: dailyPending} = useQuery({
     queryKey: ["dailyMovieData"],
     queryFn: async () => {
-      const response = await axios.get(`http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=e2093da7939d072062f791c3356fb707&targetDt=${today}`)
+      const response = await axios.get(`http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${import.meta.env.VITE_MOVIE_API_KEY}&targetDt=${today}`)
       return response.data.boxOfficeResult.dailyBoxOfficeList
     }
   })
@@ -18,7 +21,7 @@ const Home = () => {
   const {data: weeklyBoxOffice, error: weeklyError, isPending: weeklyPending} = useQuery({
     queryKey: ["weeklyMovieData"],
     queryFn: async () => {
-      const response = await axios.get(`http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=e2093da7939d072062f791c3356fb707&targetDt=${today}`)
+      const response = await axios.get(`http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=${import.meta.env.VITE_MOVIE_API_KEY}&targetDt=${today}`)
       return response.data.boxOfficeResult.weeklyBoxOfficeList
 
     }
