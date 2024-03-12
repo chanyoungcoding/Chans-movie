@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 
 const NavbarContainer = styled.div`
@@ -14,13 +15,19 @@ const NavbarContainer = styled.div`
     font-size: 2rem; 
     font-weight: bold;
     color: #0066FF;
+    cursor: pointer;
   }
 `
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const onClickGoHome = () => {
+    navigate("/");
+  }
+
   return (
     <NavbarContainer>
-      <h1>Cinelog</h1>
+      <h1 onClick={onClickGoHome}>Cinelog</h1>
       <div className="checkbox-wrapper-5">
         <div className="check">
           <input id="check-5" type="checkbox"/>
