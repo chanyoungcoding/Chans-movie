@@ -8,7 +8,7 @@ const slideAnimation = keyframes`
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-25.5%);
+    transform: translateX(-50%);
   }
 `;
 
@@ -22,16 +22,19 @@ const DailyContainer = styled.div`
 `
 
 const DailyContainerBox = styled.div`
-  width: 3000px;
+  width: 5760px;
   margin-top: 100px;
-  animation: ${slideAnimation} 20s linear infinite;
-  div {
+  animation: ${slideAnimation} 30s linear infinite;
+  .daily-inner {
     display: inline-block;
-    width: 200px;
-    height: 300px;
-    margin: 10px;
-    border-radius: 15px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    div {
+      display: inline-block;
+      width: 268px;
+      height: 268px;
+      margin: 10px;
+      border-radius: 15px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    }
   }
 `
 
@@ -60,10 +63,11 @@ const Home = () => {
     queryKey: ["KMDBMovieData"],
     queryFn: async () => {
       const response = await axios.get(url)
-      return response.data.Data
+      return response.data.Data[0].Result
     }
   })
-  console.log(`kmdb data = ${JSON.stringify(KMDBData)}`)
+
+  console.log(KMDBData)
 
   const {data: dailyBoxOffice, error: dailyError, isPending: dailyPending} = useQuery<DailyBoxOfficeData[]>({
     queryKey: ["dailyMovieData"],
@@ -89,16 +93,27 @@ const Home = () => {
 
   if(weeklyError) return <div>error</div>
   if(weeklyPending) return <div>loding</div>
+
+  if(KMDBError) return <div>error</div>
+  if(KMDBPending) return <div>loding</div>
   
   return (
     <HomeContainer>
       <DailyContainer>
         <DailyContainerBox>
-          {dailyBoxOffice?.map(item => (
-            <div>{item.movieNm}</div>
+          <div className="daily-inner">
+          {dailyBoxOffice?.map((item,index) => (
+            <div key={index}>{item.movieNm}</div>
           ))}
+          </div>
+          <div className="daily-inner">
+          {dailyBoxOffice?.map((item,index)  => (
+            <div key={index}>{item.movieNm}</div>
+          ))}
+          </div>
         </DailyContainerBox>
       </DailyContainer>
+
       <WeeklyContainer>
         <div></div>
         <div></div>
