@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useMutation } from "@tanstack/react-query";
 import styled from "styled-components";
+import axios from "axios";
 
 const LoginContainer = styled.div`
   min-width: 30%;
@@ -69,8 +71,21 @@ const LoginBox:React.FC<SignUpEvent> = ({onClickSignUp}) => {
 
   const {register, handleSubmit, formState: {errors} } = useForm<UserInput>();
 
+  const mutation = useMutation({
+    mutationKey: ["login"],
+    mutationFn: async (data:UserInput) => {
+      await axios.post("http://localhost:3000/api/users/login", data);
+    },
+    onSuccess: () => {
+      console.log("success");
+    },
+    onError: (error) => {
+      console.log(error);
+    }
+  })
+
   const onSubmit: SubmitHandler<UserInput> = (data) => {
-    console.log(data);
+    mutation.mutate(data);
   }
 
   return (
