@@ -1,10 +1,9 @@
-
 import styled from "styled-components";
-import MainBackground from "../images/background1.jpg";
+import MainOptimizationBackground from "../images/background1.webp";
 import { useNavigate } from "react-router-dom";
 
 const MainContainer = styled.div`
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${MainBackground}) no-repeat center/cover;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${MainOptimizationBackground}) no-repeat center/cover;
   height: 100vh;
 `;
 
