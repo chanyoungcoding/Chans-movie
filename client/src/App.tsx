@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import {Suspense, lazy} from 'react'
+import {Suspense, lazy, useEffect} from 'react'
 
 import './App.css';
 
@@ -10,6 +10,10 @@ const Home = lazy(() => import("./pages/Home"));
 const Login = lazy(() => import("./pages/Login"));
 
 function App() {
+
+  useEffect(() => {
+    import("./pages/Home");
+  }, [])
 
   return (
     <Suspense fallback={<div>loading...</div>}>
