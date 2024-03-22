@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import moment from "moment";
 import styled, { keyframes } from "styled-components";
 import DailyBoxOffice from "../components/DailyBoxOffice";
+import MovieSearch from "../components/MovieSearch";
 
 interface DailyBoxOfficeData {
   movieNm: string;
@@ -28,7 +29,9 @@ const Home = () => {
 
   return (
     <HomeContainer>
+      <MovieSearch/>
       <DailyContainer>
+        <h1>최신 인기 영화</h1>
         <DailyContainerBox>
           <div className="daily-inner">
           {dailyBoxOffice?.map((item) => (
@@ -62,11 +65,15 @@ const DailyContainer = styled.div`
   width: 1440px;
   margin: 0 auto;
   overflow: hidden;
+  h1 {
+    margin: 60px 0px 30px;
+    font-size: 1.5rem;
+    text-align: center;
+  }
 `
 
 const DailyContainerBox = styled.div`
   width: 5760px;
-  margin-top: 100px;
   animation: ${slideAnimation} 100s linear infinite;
   &:hover {
     animation-play-state: paused;
