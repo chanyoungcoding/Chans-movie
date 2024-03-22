@@ -4,6 +4,7 @@ import moment from "moment";
 import styled, { keyframes } from "styled-components";
 import DailyBoxOffice from "../components/DailyBoxOffice";
 import MovieSearch from "../components/MovieSearch";
+import MovieBox from "../components/MovieBox";
 
 interface DailyBoxOfficeData {
   movieNm: string;
@@ -45,6 +46,7 @@ const Home = () => {
           </div>
         </DailyContainerBox>
       </DailyContainer>
+      <MovieBox/>
     </HomeContainer>
   )
 }
@@ -59,6 +61,7 @@ const slideAnimation = keyframes`
 `;
 
 const HomeContainer = styled.div`
+  background-color: #141414;
 `
 
 const DailyContainer = styled.div`
@@ -69,6 +72,7 @@ const DailyContainer = styled.div`
     margin: 60px 0px 30px;
     font-size: 1.5rem;
     text-align: center;
+    color: white;
   }
 `
 
