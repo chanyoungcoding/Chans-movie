@@ -4,7 +4,7 @@ import moment from "moment";
 import styled, { keyframes } from "styled-components";
 import DailyBoxOffice from "../components/DailyBoxOffice";
 import MovieSearch from "../components/MovieSearch";
-import MovieBox from "../components/MovieBox";
+import MovieContainer from "../components/MovieContainer";
 
 interface DailyBoxOfficeData {
   movieNm: string;
@@ -46,7 +46,7 @@ const Home = () => {
           </div>
         </DailyContainerBox>
       </DailyContainer>
-      <MovieBox/>
+      <MovieContainer titleName="애니메이션"/>
     </HomeContainer>
   )
 }
@@ -65,7 +65,7 @@ const HomeContainer = styled.div`
 `
 
 const DailyContainer = styled.div`
-  width: 1440px;
+  width: 1400px;
   margin: 0 auto;
   overflow: hidden;
   h1 {
@@ -77,7 +77,7 @@ const DailyContainer = styled.div`
 `
 
 const DailyContainerBox = styled.div`
-  width: 5760px;
+  width: 5600px;
   animation: ${slideAnimation} 100s linear infinite;
   &:hover {
     animation-play-state: paused;
