@@ -2,6 +2,28 @@ import styled from "styled-components";
 import MainOptimizationBackground from "../images/background1.webp";
 import { useNavigate } from "react-router-dom";
 
+const Main = () => {
+
+  const navigate = useNavigate();
+
+  const loginMove = () => {
+    navigate('/login')
+  }
+
+  return (
+    <MainContainer>
+      <MainIntroBox>
+        <div>
+          <h1>Cinelog</h1>
+          <h2>PROVIDES A GREAT EXPERIENCE</h2>
+        </div>
+        <button onClick={loginMove}>LOGIN</button>
+      </MainIntroBox>
+    </MainContainer>
+  )
+}
+
+
 const MainContainer = styled.div`
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${MainOptimizationBackground}) no-repeat center/cover;
   height: 100vh;
@@ -78,26 +100,5 @@ const MainIntroBox = styled.div`
     }
   }
 `;
-
-const Main = () => {
-
-  const navigate = useNavigate();
-
-  const loginMove = () => {
-    navigate('/login')
-  }
-
-  return (
-    <MainContainer>
-      <MainIntroBox>
-        <div>
-          <h1>Cinelog</h1>
-          <h2>PROVIDES A GREAT EXPERIENCE</h2>
-        </div>
-        <button onClick={loginMove}>LOGIN</button>
-      </MainIntroBox>
-    </MainContainer>
-  )
-}
 
 export default Main

@@ -46,6 +46,10 @@ const Home = () => {
           </div>
         </DailyContainerBox>
       </DailyContainer>
+      {/* test */}
+      <MovieContainer titleName="애니메이션"/>
+      <MovieContainer titleName="애니메이션"/>
+      <MovieContainer titleName="애니메이션"/>
       <MovieContainer titleName="애니메이션"/>
     </HomeContainer>
   )

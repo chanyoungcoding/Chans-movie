@@ -72,7 +72,7 @@ const MovieBoxIntroBox = styled.div`
     align-items: center;
   }
   h1 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: white;
     font-weight: bold;
   }

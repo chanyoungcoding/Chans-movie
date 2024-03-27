@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import {Suspense, lazy, useEffect} from 'react'
+import {Suspense, lazy, useEffect} from 'react';
+import { Provider } from "jotai";
 
 import './App.css';
 
@@ -17,13 +18,15 @@ function App() {
 
   return (
     <Suspense fallback={<div>loading...</div>}>
-      <Routes>
-        <Route element={<Common/>}>
-          <Route index element={<Main/>}/>
-          <Route path='/home' element={<Home/>}/>
-          <Route path='/login' element={<Login/>}/>
-        </Route>
-      </Routes>
+      <Provider>
+        <Routes>
+          <Route element={<Common/>}>
+            <Route index element={<Main/>}/>
+            <Route path='/home' element={<Home/>}/>
+            <Route path='/login' element={<Login/>}/>
+          </Route>
+        </Routes>
+      </Provider>
     </Suspense>
   )
 }

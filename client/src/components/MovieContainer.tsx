@@ -28,34 +28,21 @@ const MovieContainer:React.FC<GenreData> = ({titleName = "오류"}) => {
           disableOnInteraction: false
         }}
       >
-      <SwiperSlide>
-        <GenreBox>
-          <MovieBox/>
-          <MovieBox/>
-          <MovieBox/>
-          <MovieBox/>
-          <MovieBox/>
-          <MovieBox/>
-          <MovieBox/>
-          <MovieBox/>
-          <MovieBox/>
-        </GenreBox>
-      </SwiperSlide>
+        <SwiperSlide>
+          <GenreBox>
+          {[...Array(6)].map((_, index) => (
+            <MovieBox key={index} />
+          ))}
+          </GenreBox>
+        </SwiperSlide>
 
-      <SwiperSlide>
-        <GenreBox>
-          <MovieBox/>
-          <MovieBox/>
-          <MovieBox/>
-          <MovieBox/>
-          <MovieBox/>
-          <MovieBox/>
-          <MovieBox/>
-          <MovieBox/>
-          <MovieBox/>
-        </GenreBox>
-      </SwiperSlide>
-
+        <SwiperSlide>
+          <GenreBox>
+          {[...Array(6)].map((_, index) => (
+            <MovieBox key={index} />
+          ))}
+          </GenreBox>
+        </SwiperSlide>
       </Swiper>
     </GenreContainer>
   )
