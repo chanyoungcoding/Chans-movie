@@ -65,7 +65,6 @@ const slideAnimation = keyframes`
 `;
 
 const HomeContainer = styled.div`
-  background-color: #141414;
 `
 
 const DailyContainer = styled.div`

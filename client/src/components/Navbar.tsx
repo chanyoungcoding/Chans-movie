@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { motion } from "framer-motion";
 import styled from "styled-components"
 
-
+// Motion options
 const variants = {
   open: { rotate: 45 },
   closed: { rotate: 225 }
@@ -45,6 +45,7 @@ const Navbar = () => {
 
   return (
     <NavbarContainer>
+
       <h1 onClick={onClickGoHome}>Cinelog</h1>
       <div className="checkbox-wrapper-5">
         <div className="check">
@@ -52,7 +53,9 @@ const Navbar = () => {
           <label htmlFor="check-5"></label>
         </div>
       </div>
+
       <MenuContainer>
+
         <MenuButton onClick={() => setIsOpen(isOpen => !isOpen)}>
           <p>MENU</p>
           <motion.div
@@ -61,6 +64,7 @@ const Navbar = () => {
             variants={variants}
           ></motion.div>
         </MenuButton>
+
         {isOpen && (
         <motion.ul
           className="container"
@@ -75,6 +79,7 @@ const Navbar = () => {
         ))}
         </motion.ul>
         )}
+
       </MenuContainer>
     </NavbarContainer>
   )

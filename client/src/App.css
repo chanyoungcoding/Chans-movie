@@ -1,3 +1,8 @@
+body {
+  background-color: #141414;
+  color: white;
+}
+
 .swiper-button-next, .swiper-button-prev {
   color: white !important;
 }

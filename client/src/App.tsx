@@ -6,6 +6,7 @@ import './App.css';
 
 import Common from './pages/Common';
 import Main from './pages/Main';
+import Detail from './pages/Detail';
 
 const Home = lazy(() => import("./pages/Home"));
 const Login = lazy(() => import("./pages/Login"));
@@ -24,6 +25,7 @@ function App() {
             <Route index element={<Main/>}/>
             <Route path='/home' element={<Home/>}/>
             <Route path='/login' element={<Login/>}/>
+            <Route path='/detail' element={<Detail/>}/>
           </Route>
         </Routes>
       </Provider>
